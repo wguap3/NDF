@@ -16,13 +16,6 @@
 ##### Сообщение к коммиту.
 ##### HEAD - то синоним хеша последнего коммита — его можно передавать командам Git в качестве параметра.
 ## Статусы untracked/tracked, staged и modified
-```mermaid
-graph LR;
-  untracked(неотслеживаемый) -- "git add" --> staged(в списке на коммит);
-  staged(в списке на коммит) -- "git commit" --> tracked(отслеживаемый);
-  tracked(отслеживаемый) -- "Изменения" --> modified(измененный);
-  modified(измененный) -- "git add" --> staged(в списке на коммит);
-
 ## Как исправить коммит
 #### git commit —amend —no-edit(—no-edit если не нужно менять текст коммита)
 #### git commit --amend -m "Новое сообщение"
@@ -31,3 +24,9 @@ graph LR;
 #### git restore --staged .  - Уберет все файлы из staged
 #### «Откатить» коммит — git reset --hard <commit hash>(указываем хэш до того коммита до которого все удалиться без скобок <>)
 #### «Откатить» изменения, которые не попали ни в staging, ни в коммит, — git restore <file>
+```mermaid
+graph LR;
+  untracked(неотслеживаемый) -- "git add" --> staged(в списке на коммит);
+  staged(в списке на коммит) -- "git commit" --> tracked(отслеживаемый);
+  tracked(отслеживаемый) -- "Изменения" --> modified(измененный);
+  modified(измененный) -- "git add" --> staged(в списке на коммит);
